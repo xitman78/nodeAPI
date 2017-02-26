@@ -13,11 +13,13 @@ userController.post = (req, res) => {
   });
 
   user.save().then((newUser) => {
+    console.log('/signup');
     res.status(200).json({
       success: true,
       data: newUser,
     });
   }).catch((err) => {
+    console.log('Error', err);
     res.status(500).json({
       message: err,
     });
